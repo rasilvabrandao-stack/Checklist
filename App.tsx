@@ -232,8 +232,8 @@ const App: React.FC = () => {
       >
           <p>{modalState.message}</p>
       </Modal>
-      <div className="min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8 font-sans">
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8 printable-area">
+      <div className="min-h-screen bg-gray-100 p-2 sm:p-4 md:p-6 lg:p-8 font-sans">
+        <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-xl p-3 sm:p-4 md:p-6 lg:p-8 printable-area">
           <div className="print-header">
             <div className="text-center border-b-2 border-blue-600 pb-4 mb-6">
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">CHECK-LIST DE LIBERAÇÃO DE INSTALAÇÕES ELÉTRICAS</h1>

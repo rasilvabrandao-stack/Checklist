@@ -42,7 +42,7 @@ const SignatureSection: React.FC<SignatureSectionProps> = ({ data, onChange }) =
   return (
     <div className="mt-10 pt-6 border-t-2 border-dashed border-gray-300">
       <h2 className="text-center bg-blue-600 text-white p-3 font-bold text-lg rounded-t-lg">ASSINATURAS</h2>
-      <div className="flex flex-wrap gap-4 p-4 border border-t-0 border-gray-200 rounded-b-lg text-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 border border-t-0 border-gray-200 rounded-b-lg text-sm">
         <SignatureField title="Montador da Instalação" personKey="installer" data={data} onChange={onChange} />
         <SignatureField title="Acompanhante da Vistoria" personKey="inspectorAssistant" data={data} onChange={onChange} />
         <SignatureField title="Supervisor de Elétrica" personKey="electricalSupervisor" data={data} onChange={onChange} />

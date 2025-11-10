@@ -137,10 +137,10 @@ const ChecklistItemRow: React.FC<ChecklistItemRowProps> = ({ item, onChange, onD
   return (
     <div className="grid grid-cols-12 gap-2 p-2 items-center hover:bg-gray-50 checklist-item-row">
       <div className="col-span-1 text-center font-medium text-gray-800">{item.id}</div>
-      <div className="col-span-11 sm:col-span-3 text-gray-700">{item.description}</div>
-      
+      <div className="col-span-11 md:col-span-3 text-gray-700">{item.description}</div>
+
       {/* Mobile view */}
-      <div className="col-span-12 sm:hidden grid grid-cols-1 gap-2 mt-2">
+      <div className="col-span-12 md:hidden grid grid-cols-1 gap-2 mt-2">
          <div className="flex justify-start space-x-2 no-print">
             <StatusButton label="OK" value="OK" currentStatus={item.status} itemID={item.id} onChange={(status) => onChange(status, undefined, undefined)} />
             <StatusButton label="Não OK" value="Não OK" currentStatus={item.status} itemID={item.id} onChange={(status) => onChange(status, undefined, undefined)} />
@@ -169,15 +169,51 @@ const ChecklistItemRow: React.FC<ChecklistItemRowProps> = ({ item, onChange, onD
          </div>
       </div>
 
+      {/* Tablet view */}
+      <div className="hidden md:flex lg:hidden col-span-8 grid grid-cols-8 gap-2 mt-2">
+        <div className="col-span-2 flex justify-center items-center space-x-1">
+          <div className="no-print flex flex-col space-y-1">
+            <StatusButton label="OK" value="OK" currentStatus={item.status} itemID={item.id} onChange={(status) => onChange(status, undefined, undefined)} />
+            <StatusButton label="Não OK" value="Não OK" currentStatus={item.status} itemID={item.id} onChange={(status) => onChange(status, undefined, undefined)} />
+          </div>
+          <p className="hidden print:block text-xs">{item.status}</p>
+        </div>
+        <div className="col-span-3">
+          <div className="no-print">
+              <input
+              type="text"
+              placeholder="Observações..."
+              value={item.observation}
+              onChange={(e) => onChange(undefined, e.target.value, undefined)}
+              className="w-full p-1 border border-gray-300 rounded-md text-xs focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              />
+          </div>
+          <p className="hidden print:block text-xs">{item.observation || 'N/A'}</p>
+        </div>
+         <div className="col-span-2">
+          <ImageUploader />
+        </div>
+        <div className="col-span-1 flex justify-center items-center">
+          <button
+              type="button"
+              onClick={onDelete}
+              className="text-gray-400 hover:text-red-600 transition-colors no-print"
+              aria-label={`Excluir item ${item.id}`}
+          >
+              <DeleteIcon />
+          </button>
+        </div>
+      </div>
+
       {/* Desktop view */}
-      <div className="hidden sm:flex col-span-2 justify-center items-center space-x-2">
+      <div className="hidden lg:flex col-span-2 justify-center items-center space-x-2">
         <div className="no-print flex space-x-2">
           <StatusButton label="OK" value="OK" currentStatus={item.status} itemID={item.id} onChange={(status) => onChange(status, undefined, undefined)} />
           <StatusButton label="Não OK" value="Não OK" currentStatus={item.status} itemID={item.id} onChange={(status) => onChange(status, undefined, undefined)} />
         </div>
         <p className="hidden print:block">{item.status}</p>
       </div>
-      <div className="hidden sm:block col-span-3">
+      <div className="hidden lg:block col-span-3">
         <div className="no-print">
             <input
             type="text"
@@ -189,10 +225,10 @@ const ChecklistItemRow: React.FC<ChecklistItemRowProps> = ({ item, onChange, onD
         </div>
         <p className="hidden print:block text-sm">{item.observation || 'N/A'}</p>
       </div>
-       <div className="hidden sm:block col-span-2">
+       <div className="hidden lg:block col-span-2">
         <ImageUploader />
       </div>
-      <div className="hidden sm:flex col-span-1 justify-center items-center">
+      <div className="hidden lg:flex col-span-1 justify-center items-center">
         <button
             type="button"
             onClick={onDelete}

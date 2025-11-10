@@ -23,12 +23,12 @@ const InputField: React.FC<{ label: string; name: string; value: string; onChang
 
 const Header: React.FC<HeaderProps> = ({ data, onChange }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 text-sm">
       <InputField label="Local da instalação" name="installationLocation" value={data.installationLocation} onChange={onChange} />
       <InputField label="Projeto" name="project" value={data.project} onChange={onChange} />
       <InputField label="Responsável técnico" name="technicalManager" value={data.technicalManager} onChange={onChange} />
       <InputField label="Data da vistoria" name="inspectionDate" value={data.inspectionDate} onChange={onChange} />
-      <InputField label="Executor da vistoria" name="inspector" value={data.inspector} onChange={onChange} className="md:col-span-2" />
+      <InputField label="Executor da vistoria" name="inspector" value={data.inspector} onChange={onChange} className="sm:col-span-2 lg:col-span-3" />
     </div>
   );
 };

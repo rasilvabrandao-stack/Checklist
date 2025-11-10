@@ -35,13 +35,19 @@ const ChecklistSection: React.FC<ChecklistSectionProps> = ({ section, onItemChan
       <div className="overflow-x-auto">
         <div className="min-w-full text-sm">
             {/* Header */}
-            <div className="grid grid-cols-12 gap-2 bg-gray-100 p-2 font-semibold text-gray-600">
+            <div className="hidden md:grid grid-cols-12 gap-2 bg-gray-100 p-2 font-semibold text-gray-600">
                 <div className="col-span-1 text-center">Item</div>
                 <div className="col-span-3">Verificação</div>
                 <div className="col-span-2 text-center">Status</div>
                 <div className="col-span-3">Observações</div>
                 <div className="col-span-2 text-center">Imagem</div>
                 <div className="col-span-1 text-center">Ações</div>
+            </div>
+            {/* Mobile Header */}
+            <div className="md:hidden grid grid-cols-4 gap-2 bg-gray-100 p-2 font-semibold text-gray-600 text-xs">
+                <div className="col-span-1 text-center">Item</div>
+                <div className="col-span-2">Verificação</div>
+                <div className="col-span-1 text-center">Status</div>
             </div>
             {/* Items */}
             <div className="divide-y divide-gray-200">
